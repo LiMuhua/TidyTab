@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index</title>
+    <!-- 引入资源 -->
+    <!-- Vue -->
+    <script src="/lib/js//vue/3.2.31/vue.global.js"></script>
+    <!-- JQ -->
+    <script src="/lib/js/jquery-3.6.0.js"></script>
+    <!-- Element UI -->
+    <script src="/lib/js/elementPlus2.1.7.js"></script>
+    <link rel="stylesheet" href="/lib/css/elementPlus2.1.7.css" />
+    <!-- 瀑布流布局 -->
+    <script src="/lib//js/masonry4.2.2.js"></script>
+    <!-- 自定义 -->
+    <link rel="stylesheet" href="/lib/css/main.css" />
+    <script src="/lib/js/main.js" type="module"></script>
+  </head>
+  <body>
+    <!-- 布局容器 -->
+    <div id="layout">
+      <el-container id="container">
+        <!-- 顶栏 -->
+        <el-header id="header">
+          Logo
+        </el-header>
+        <el-container>
+          <!-- 侧边栏 -->
+          <el-aside id="aside"> 
+            <el-button type="primary" v-on:click="addGroup">添加组</el-button>
+          </el-aside>
+          <!-- 内容区 -->
+          <el-main id="main">
+            <div class="tabGroup">
+              <p>标签组0</p>
+              <el-button type="primary" v-on:click="addItem">添加元素</el-button>
+            </div>
+            <div class="tabGroup">
+              <p>标签组1</p>
+              <el-button type="primary" v-on:click="addItem">添加元素</el-button>
+            </div>
+            <div class="tabGroup">
+              <p>标签组2</p>
+              <el-button type="primary" v-on:click="addItem">添加元素</el-button>
+            </div>
+            <div class="tabGroup">
+              <p>标签组3</p>
+              <el-button type="primary" v-on:click="addItem">添加元素</el-button>
+            </div>
+            <div class="tabGroup">
+              <p>标签组4</p>
+              <el-button type="primary" v-on:click="addItem">添加元素</el-button>
+            </div>
+            <div class="tabGroup">
+              <p>标签组5</p>
+              <el-button type="primary" v-on:click="addItem">添加元素</el-button>
+            </div>
+            <div class="tabGroup">
+              <p>标签组6</p>
+              <el-button type="primary" v-on:click="addItem">添加元素</el-button>
+            </div>
+            <div class="tabGroup">
+              <p>标签组7</p>
+              <el-button type="primary" v-on:click="addItem">添加元素</el-button>
+            </div>
+          </el-main>
+        </el-container>
+      </el-container>
+    </div>
+
+    <script type="text/template" id="addGroup">
+      <p>标签组.add</p>
+      <!-- 在追加元素时，不能解析非原生标签 -->
+      <button class="el-button el-button--primary" type="button">添加元素</button>
+    </script>
+
+  </body>
+</html>
