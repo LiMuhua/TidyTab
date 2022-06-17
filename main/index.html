@@ -6,17 +6,23 @@
     <title>index</title>
     <!-- 引入资源 -->
     <!-- Vue -->
-    <script src="/lib/js//vue/3.2.31/vue.global.js"></script>
+    <script src="/lib/js/vue/3.2.31/vue.global.js"></script>
+
     <!-- JQ -->
     <script src="/lib/js/jquery-3.6.0.js"></script>
+
     <!-- Element UI -->
     <script src="/lib/js/elementPlus2.1.7.js"></script>
     <link rel="stylesheet" href="/lib/css/elementPlus2.1.7.css" />
+    <script src="//unpkg.com/@element-plus/icons-vue"></script>
+
     <!-- 瀑布流布局 -->
-    <script src="/lib//js/masonry4.2.2.js"></script>
+    <script src="/lib/js/masonry4.2.2.js"></script>
+
     <!-- 自定义 -->
     <link rel="stylesheet" href="/lib/css/main.css" />
     <script src="/lib/js/main.js" type="module"></script>
+
   </head>
   <body>
     <!-- 布局容器 -->
@@ -24,46 +30,233 @@
       <el-container id="container">
         <!-- 顶栏 -->
         <el-header id="header">
-          Logo
+          <div>
+            <div id="logo">
+              <el-icon :size="40"><Operation /></el-icon>
+              <span>TidyTab</span>
+            </div>
+            <div id="search">
+              <el-icon size="35"><Search /></el-icon>
+              <input type="text" placeholder="Search">
+            </div>
+            <div id="darkSwitch">
+              <el-icon :size="45"><Sunny /></el-icon>
+            </div>
+          </div>
         </el-header>
+        
         <el-container>
           <!-- 侧边栏 -->
-          <el-aside id="aside"> 
-            <el-button type="primary" v-on:click="addGroup">添加组</el-button>
+          <el-aside id="aside">
+            <div class="activeGroup">
+              <el-icon :size="20"><Flag /></el-icon>
+              <span>默认标签组</span>
+            </div>
+            <div>
+              <el-icon :size="20"><Flag /></el-icon>
+              <span>常规标签组</span>
+            </div>
+            <div>
+              <el-icon :size="20"><Flag /></el-icon>
+              <span>常规标签组</span>
+            </div>
+            <div id="setting">
+              <el-icon :size="20"><Setting /></el-icon>
+              <span>设置</span>
+            </div>
+            <!-- <el-button type="primary" v-on:click="addGroup">添加组</el-button> -->
           </el-aside>
           <!-- 内容区 -->
           <el-main id="main">
             <div class="tabGroup">
-              <p>标签组0</p>
-              <el-button type="primary" v-on:click="addItem">添加元素</el-button>
+              <p>
+                <span>Easy POI</span>
+                <span>10天前</span>
+              </p>
+              <div>
+                <img src="https://mvnrepository.com/assets/images/7080b8b0f6f48e6fbaffd5f9d85fcc7f-favicon.ico">
+                <span>Maven Repository: easyPOI</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="https://g.csdnimg.cn/static/logo/favicon32.ico">
+                <span>Invalid header signature问题产生的原因及解决方法_Lavi_qq_2910138025的博客-CSDN博客_invalidheader</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="https://g.csdnimg.cn/static/logo/favicon32.ico">
+                <span>使用easypoi导出excel 自定义表格样式_卡_卡_西的博客-CSDN博客_easypoi自定义样式</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="https://g.csdnimg.cn/static/logo/favicon32.ico">
+                <span>easy poi 导入导出使用_码农农农农农农的博客-CSDN博客_easy poi 导入</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="https://github.githubassets.com/favicons/favicon.svg">
+                <span>jueyue/easypoi: POI tool, excel quick import and export, excel template export, word template export, can complete the import and export of Excel in only 5 lines of code, the modification and export format is simple, rough, fast and effective, easypoi is worth your try</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="http://122.9.167.145:9086/fvue/cqxy.ico">
+                <span>2.2 注解 - Powered by MinDoc</span>
+                <el-icon><Close /></el-icon>
+              </div>
             </div>
             <div class="tabGroup">
-              <p>标签组1</p>
-              <el-button type="primary" v-on:click="addItem">添加元素</el-button>
+              <p>
+                <span>WPS在线文档服务接入</span>
+                <span>15天前</span>
+              </p>
+              <div>
+                <img src="https://open.wps.cn/favicon.ico">
+                <span>WPS 开放平台</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="https://open.wps.cn/favicon.ico">
+                <span>快速开始-WebOffice 知识库</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="https://wwo.wps.cn/comm/favicon.ico">
+                <span>出错啦！请刷新文档；如还不能打开，请2分钟后重试。 | WebOffice 问答社区</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="https://www.jianshu.com/favicon.ico">
+                <span>WPS文档在线预览接入的一点心得 - 简书</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="https://g.csdnimg.cn/static/logo/favicon32.ico">
+                <span>wps在线预览接口_在线文档预览（干货篇）_weixin_39849387的博客-CSDN博客</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="https://www.ljserver.cn/wpsonline/favicon.ico">
+                <span>wps-online</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="https://assets.gitee.com/assets/favicon-9007bd527d8a7851c8330e783151df58.ico">
+                <span>wps-view-java: 基于wps在线编辑、在线预览后台服务</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="https://assets.gitee.com/assets/favicon-9007bd527d8a7851c8330e783151df58.ico">
+                <span>wps-view-vue: wps在线编辑、预览前端vue项目，基于es6</span>
+                <el-icon><Close /></el-icon>
+              </div>
             </div>
             <div class="tabGroup">
-              <p>标签组2</p>
-              <el-button type="primary" v-on:click="addItem">添加元素</el-button>
+              <p>
+                <span>BiliBili</span>
+                <span>20天前</span>
+              </p>
+              <div>
+                <img src="https://s1.hdslb.com/bfs/static/jinkela/video/asserts/topic-icon.svg">
+                <span>最近，你快乐吗？_哔哩哔哩_bilibili</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="https://s1.hdslb.com/bfs/static/jinkela/video/asserts/topic-icon.svg">
+                <span>【黄鸭兄】傲慢是精英的耻辱，谦虚是精英的责任_哔哩哔哩_bilibili</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="https://s1.hdslb.com/bfs/static/jinkela/video/asserts/topic-icon.svg">
+                <span>寻找这个时代的密涅瓦猫头鹰：技术、知识、闲暇、想象_哔哩哔哩_bilibili</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="https://s1.hdslb.com/bfs/static/jinkela/video/asserts/topic-icon.svg">
+                <span>介绍一条穷人跨越阶级的可行之路（保证干货，非鸡汤）_哔哩哔哩_bilibili</span>
+                <el-icon><Close /></el-icon>
+              </div>
             </div>
             <div class="tabGroup">
-              <p>标签组3</p>
-              <el-button type="primary" v-on:click="addItem">添加元素</el-button>
+              <p>
+                <span>标签组</span>
+                <span>25天前</span>
+              </p>
+              <div>
+                <img src="https://element-plus.gitee.io/images/element-plus-logo-small.svg">
+                <span>map缓存token并设置过期时间_谛蕴的博客-</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="http://122.9.167.145:9086/fvue/cqxy.ico">
+                <span>map缓存token并设置过期时间_谛蕴的博客-CSDN博客_map设置过期时间时间_谛蕴的博客-CSDN博客_map设置过期时间</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="https://element-plus.gitee.io/images/element-plus-logo-small.svg">
+                <span>map缓存token并设置过期时间_谛蕴的博客-CSDN博客_map设置过期时间时间_谛蕴的博客-CSDN博客_map设置过期时间</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="http://122.9.167.145:9086/fvue/cqxy.ico">
+                <span>map缓存token并设置过期时间_谛蕴的博客-CSDN博客_map设置过期时间时间_谛蕴的博客-CSDN博客_map设置过期时间</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="https://element-plus.gitee.io/images/element-plus-logo-small.svg">
+                <span>map缓存token并设置过期时间_谛蕴的博客-CSDN博客_map设置过期时间时间_谛蕴的博客-CSDN博客_map设置过期时间</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="http://122.9.167.145:9086/fvue/cqxy.ico">
+                <span>map缓存token并设置过期时间_谛蕴的博客-CSDN博客_map设置过期时间时间_谛蕴的博客-CSDN博客_map设置过期时间</span>
+                <el-icon><Close /></el-icon>
+              </div>
             </div>
             <div class="tabGroup">
-              <p>标签组4</p>
-              <el-button type="primary" v-on:click="addItem">添加元素</el-button>
-            </div>
-            <div class="tabGroup">
-              <p>标签组5</p>
-              <el-button type="primary" v-on:click="addItem">添加元素</el-button>
-            </div>
-            <div class="tabGroup">
-              <p>标签组6</p>
-              <el-button type="primary" v-on:click="addItem">添加元素</el-button>
-            </div>
-            <div class="tabGroup">
-              <p>标签组7</p>
-              <el-button type="primary" v-on:click="addItem">添加元素</el-button>
+              <p>
+                <span>标签组</span>
+                <span>1月前</span>
+              </p>
+              <div>
+                <img src="https://element-plus.gitee.io/images/element-plus-logo-small.svg">
+                <span>map缓存token并设置过期时间_谛蕴的博客-</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="http://122.9.167.145:9086/fvue/cqxy.ico">
+                <span>map缓存token并设置过期时间_谛蕴的博客-CSDN博客_map设置过期时间时间_谛蕴的博客-CSDN博客_map设置过期时间</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="https://element-plus.gitee.io/images/element-plus-logo-small.svg">
+                <span>map缓存token并设置过期时间_谛蕴的博客-CSDN博客_map设置过期时间时间_谛蕴的博客-CSDN博客_map设置过期时间</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="http://122.9.167.145:9086/fvue/cqxy.ico">
+                <span>map缓存token并设置过期时间_谛蕴的博客-CSDN博客_map设置过期时间时间_谛蕴的博客-CSDN博客_map设置过期时间</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="https://element-plus.gitee.io/images/element-plus-logo-small.svg">
+                <span>map缓存token并设置过期时间_谛蕴的博客-CSDN博客_map设置过期时间时间_谛蕴的博客-CSDN博客_map设置过期时间</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="http://122.9.167.145:9086/fvue/cqxy.ico">
+                <span>map缓存token并设置过期时间_谛蕴的博客-CSDN博客_map设置过期时间时间_谛蕴的博客-CSDN博客_map设置过期时间</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="https://element-plus.gitee.io/images/element-plus-logo-small.svg">
+                <span>map缓存token并设置过期时间_谛蕴的博客-CSDN博客_map设置过期时间时间_谛蕴的博客-CSDN博客_map设置过期时间</span>
+                <el-icon><Close /></el-icon>
+              </div>
+              <div>
+                <img src="http://122.9.167.145:9086/fvue/cqxy.ico">
+                <span>map缓存token并设置过期时间_谛蕴的博客-CSDN博客_map设置过期时间时间_谛蕴的博客-CSDN博客_map设置过期时间</span>
+                <el-icon><Close /></el-icon>
+              </div>
             </div>
           </el-main>
         </el-container>
@@ -71,9 +264,15 @@
     </div>
 
     <script type="text/template" id="addGroup">
-      <p>标签组.add</p>
-      <!-- 在追加元素时，不能解析非原生标签 -->
-      <button class="el-button el-button--primary" type="button">添加元素</button>
+      <p>
+        <span>标签组</span>
+        <span>1月前</span>
+      </p>
+      <div>
+        <span>jueyue/easypoi: POI tool, excel quick impo...</span>
+        <!-- 在追加元素时，不能解析组件标签 -->
+        <!-- <el-icon><Close /></el-icon> -->
+      </div>
     </script>
 
   </body>

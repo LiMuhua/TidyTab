@@ -1,54 +1,193 @@
+/* 通用配置 */
 *{
   padding: 0;
   margin: 0;
+  list-style: none;
   text-decoration: none;
 }
-
-#container{
-  height: 100vh;
-}
-
-.el-header,.el-aside,.el-main{
-  border:1px red solid;
-  padding: 0;
-  margin: 0;
-}
-
-.el-header{
-  height: 8vh;
-  line-height: 8vh;
-  padding: 0 3vw;
-  background-color: rgb(3,169,244);
-  color: white;
-}
-
-.el-aside{
-  width: 15%;
-  padding: 0 3vw;
-}
-
-.el-main{
-  height: 92vh !important;/* 100vh-顶栏的8vh */  
-}
-.tabGroup{
-  float: left;
-  width: 30%;
-  height: 20%;
-  margin-bottom: 20px;
-  border: 2px solid hsla(0, 0%, 0%, 0.5);
-  border-radius: 5px;
-  
-}
-.tabGroup:nth-child(2),
-.tabGroup:nth-child(5){
-  height: 30% !important;
-}
-/* 设置滚动条的样式 */
+  /* 滚动条 */
 ::-webkit-scrollbar {
   width: 8px;
   }
-/* 滚动条滑块 */
 ::-webkit-scrollbar-thumb {
-border-radius:10px;
-background:rgba(0,0,0,0.3);
+  border-radius:10px;
+  background:rgba(0,0,0,0.3);
+}
+
+/* 布局 */
+#container{
+  height: 100vh;
+  background-color: rgb(241, 241, 241);
+}
+/* 标题栏 */
+#header{
+  height: 9.31vh;
+  line-height: 9.31vh;
+  padding: 0 1vw;
+  background-color: rgb(103, 132, 161);
+  color: white;
+  font-size: 2em;
+  position: relative;
+}
+#header div{
+  display: inline-block;
+}
+#header .el-icon{
+  display: inline;
+  vertical-align: middle;
+}
+#header #darkSwitch{
+  position: absolute;
+  right: 1vw;
+}
+  /* 搜索框 */
+#header #search{
+  width: 45vw;
+  height: 6vh;
+  line-height: 6vh;
+  padding: 0 .5em;
+  background-color: rgba(255, 255, 255, .15);
+  position: absolute;
+  left: 28.5vw;
+  top: 1.655vh;
+}
+#header #search i{
+  vertical-align: middle;
+}
+#header #search input{
+  border: none;
+  outline: none;
+  width: calc(100% - 3em);
+  height: 45%;
+  line-height: 45%;
+  font-size: .6em;
+  vertical-align: middle;
+  background-color: rgba(126, 150, 175, .15);
+}
+#header #search input::placeholder{
+  color: rgb(188, 212, 228);
+}
+/* 边栏 */
+#aside{
+  width: 12.5%;
+  padding: 1.2vw;
+  box-shadow: 5px 0 5px -3px rgb(217,217,217) ;
+  border-right: 1px rgb(217,217,217) solid;
+  position: relative;
+}
+#aside div{
+  width: calc(100% - 2.4vw);
+  margin-bottom: 0.5em;
+  padding: 0 1.1em;
+  transition: .8s;
+  border-radius: 5px;
+  height: 3em;
+  line-height: 3em;
+  color: rgb(107, 116, 129);
+}
+#aside div span{
+  display: inline-block;
+  width: calc(100% - 2.3em);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+#aside .activeGroup,
+#aside div:hover{
+  cursor: pointer;
+  transition: .8s;
+  color: black;
+  background-color: rgb(224, 224, 224);
+}
+#aside div i{
+  transition: .8s;
+  color: rgb(107, 116, 129);
+  vertical-align: middle;
+  margin-right: 0.45em;
+}
+#aside .activeGroup i,
+#aside div:hover>i{
+  color: black;
+  transition: .8s;
+}
+#aside #setting{
+  /* TODO：脱离文本流后宽度继承异常？ */
+  width: calc(81% - 2.4vw);
+  position: absolute;
+  bottom: 0;
+}
+
+/* 内容域 */
+.el-main{
+  height: calc(100vh - 9.31vh) !important;
+}
+  /* 标签组 */
+.tabGroup{
+  float: left;
+  width: calc(47.5% - 3em);
+  min-height: 25%;
+  margin-bottom: 2.5vh;
+  padding: 0 1.5em 1em 1.5em;
+  border-radius: 15px;
+  background-color: rgb(252, 252, 252);
+  box-shadow: 5px 5px 5px -1px rgb(203, 203, 203);
+}
+.tabGroup p{
+  height: 3em;
+  line-height: 3em;
+  margin-top: 0.5em;
+}
+.tabGroup p span:first-child{
+  margin-right: 1vw;
+  font-size: 1.5em;
+  color: rgb(0, 0, 0);
+}
+.tabGroup p span:last-child{
+  font-size: 0.9em;
+  color: rgba(158, 158, 158, 0.7);
+}
+  /* 标签单元 */
+.tabGroup div{
+  margin-left: 1.5em;
+  padding: 0 1em;
+  height: 2.5em;
+  line-height: 2.5em;
+  border-radius: 5px;
+  font-size: 0.9em;
+  font-weight: normal;
+  color: #000000;
+  transition: .8s;
+}
+.tabGroup div img{
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: middle;
+}
+.tabGroup div span{
+  display: inline-block;
+  width: calc(100% - 2.9em);
+  margin-left: 0.7em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+.tabGroup div:hover{
+  cursor: pointer;
+  transition: .8s;
+  color: rgb(21, 126, 253);
+  background-color: rgb(240, 240, 240);
+}
+.tabGroup div i{
+  display: inline-block;
+  transition: .8s;
+  vertical-align: middle;
+  color: rgb(164, 166, 170);
+}
+.tabGroup div i:hover{
+  
+  transition: .8s;
+  color: rgb(82, 83, 85);
 }
