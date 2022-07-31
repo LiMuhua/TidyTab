@@ -6,22 +6,26 @@
     <title>index</title>
     <!-- 引入资源 -->
     <!-- Vue -->
-    <script src="/lib/js/resource/vue.3.2.37.js"></script>
-
-    <!-- JQ -->
-    <script src="/lib/js/resource/jquery-3.6.0.js"></script>
+    <script src="/lib/js/resource/vue@3.2.37.global.dev.js"></script>
+    <!-- <script src="/lib/js/resource/vue@3.2.37.global.prod.js"></script> -->
 
     <!-- Element UI -->
-    <script src="/lib/js/resource/elementPlus2.2.9.js"></script>
-    <link rel="stylesheet" href="/lib/css/elementPlus2.1.7.css" />
-    <script src="/lib/js/resource/elementPlusVueIcon2.0.6.js"></script>
+    <script src="/lib/js/resource/elementPlus@2.2.11.prod.js"></script>
+    <link rel="stylesheet" href="/lib/css/elementPlus@2.1.7.css" />
+    <script src="/lib/js/resource/elementPlusVueIcon@2.0.6.prod.js"></script>
+
+    <!-- 右键菜单 -->
+    <script src="/lib//js//resource/vue3ContextMenu@1.0.16.prod.js"></script>
+
+    <!-- JQ -->
+    <script src="/lib/js/resource/jquery@3.6.prod.js"></script>
 
     <!-- 瀑布流布局 -->
-    <script src="/lib/js/resource/masonry4.2.2.js"></script>
+    <script src="/lib/js/resource/masonry@4.2.2.prod.js"></script>
 
     <!-- 自定义 -->
     <link rel="stylesheet" href="/lib/css/main.css" />
-    <script src="/lib/js/main.js" type="module"></script>
+    <script src="/lib/js/components/root.js" type="module"></script>
   </head>
   <body>
     <!-- 布局容器 -->
@@ -59,7 +63,22 @@
               <el-icon :size="20"><Flag /></el-icon>
               <span>常规标签组</span>
             </div>
-            <button @click="addGroup">添加组</button>
+
+            <div>
+              title:<input
+                type="text"
+                name=""
+                id=""
+                v-model="groupDataTemp.title"
+              />
+              createTime:<input
+                type="text"
+                name=""
+                id=""
+                v-model="groupDataTemp.createTime"
+              />
+              <button @click="createTabGroup(groupDataTemp)">添加单元</button>
+            </div>
             <div id="setting">
               <el-icon :size="20"><Setting /></el-icon>
               <span>设置</span>
@@ -67,9 +86,36 @@
           </el-aside>
           <!-- 内容区 -->
           <el-main id="main">
-            <tab-group v-for="(item, index) in 3" :key="index">  
-                <tab v-for="(item, index) in 8" :key="index"></tab>
+            <tab-group
+              v-for="(group, index) in groupDataList"
+              :key="index"
+              :group="group"
+              ref="groupRef"
+            >
+              <tab
+                v-for="(tab, index) in group.tabDataList"
+                :key="index"
+                @click="createTab(tab)"
+                :tab="tab"
+                ref="tabRef"
+              ></tab>
+              <div>
+                iconUrl:<input
+                  type="text"
+                  name=""
+                  id=""
+                  v-model="tabDataTemp.iconUrl"
+                />
+                content:<input
+                  type="text"
+                  name=""
+                  id=""
+                  v-model="tabDataTemp.contents"
+                />
+                <button @click="createTab(index, tabDataTemp)">添加单元</button>
+              </div>
             </tab-group>
+
           </el-main>
         </el-container>
       </el-container>
@@ -85,14 +131,14 @@
         <slot></slot>
       </div>
     </template>
-
     <!-- 标签单元模板 -->
     <template id="tab">
-      <div class="tab">
-        <img :src="iconUrl" />
-        <span>{{contents}}</span>
-        <el-icon><Close /></el-icon>
-      </div>
+        <div class="tab">
+          <img :src="iconUrl" />
+          <span>{{contents}}</span>
+          <el-icon><Close /></el-icon>
+        </div>
     </template>
+
   </body>
 </html>
