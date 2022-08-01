@@ -95,7 +95,6 @@
               <tab
                 v-for="(tab, index) in group.tabDataList"
                 :key="index"
-                @click="createTab(tab)"
                 :tab="tab"
                 ref="tabRef"
               ></tab>
@@ -115,7 +114,6 @@
                 <button @click="createTab(index, tabDataTemp)">添加单元</button>
               </div>
             </tab-group>
-
           </el-main>
         </el-container>
       </el-container>
@@ -123,22 +121,57 @@
 
     <!-- 标签组模板 -->
     <template id="tabGroup">
-      <div class="tabGroup">
+      <div class="tabGroup" @contextmenu="rightClick">
         <p>
           <span>{{title}}</span>
           <span>{{createTime}}</span>
         </p>
         <slot></slot>
+        <!-- 右键菜单 -->
+        <vue3-menus
+          v-model:open="isOpen"
+          :event="eventVal"
+          :menus="menusOtions.menus"
+        >
+          <template #default="{ item }">
+            <div
+              :class="['my-menus-item', item.item.disabled ? 'my-menus-item-disabled' : 'my-menus-item-available',]"
+            >
+              <el-icon>
+                <component :is="item.item.icon"> </component>
+              </el-icon>
+              <div>{{ item.item.label }}</div>
+            </div>
+          </template>
+        </vue3-menus>
       </div>
     </template>
+
     <!-- 标签单元模板 -->
     <template id="tab">
-        <div class="tab">
-          <img :src="iconUrl" />
-          <span>{{contents}}</span>
-          <el-icon><Close /></el-icon>
-        </div>
+      <!-- 事件修饰符 .stop 阻止事件传递，以避免事件被父级覆盖 -->
+      <div class="tab" @contextmenu.stop="rightClick">
+        <img :src="iconUrl" />
+        <span>{{contents}}</span>
+        <el-icon><Close /></el-icon>
+        <!-- 右键菜单 -->
+        <vue3-menus
+          v-model:open="isOpen"
+          :event="eventVal"
+          :menus="menusOtions.menus"
+        >
+          <template #default="{ item }">
+            <div
+              :class="['my-menus-item', item.item.disabled ? 'my-menus-item-disabled' : 'my-menus-item-available',]"
+            >
+              <el-icon>
+                <component :is="item.item.icon"> </component>
+              </el-icon>
+              <div>{{ item.item.label }}</div>
+            </div>
+          </template>
+        </vue3-menus>
+      </div>
     </template>
-
   </body>
 </html>

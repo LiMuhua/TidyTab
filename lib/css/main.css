@@ -190,3 +190,61 @@
   transition: .8s;
   color: rgb(82, 83, 85);
 }
+
+/* 右键菜单 */
+.github {
+  margin-top: 60px;
+  font-size: 36px;
+}
+
+.item {
+  display: inline-block;
+  background-color: aqua;
+  margin: 20px;
+  line-height: 200px;
+  padding: 0 20px;
+  height: 200px;
+}
+
+.menus-item-class:hover {
+  background: #090a0b;
+  color: #ff0202;
+}
+
+.my-menus-item {
+  display: flex;
+  line-height: 2rem;
+  padding: 0 1rem;
+  margin: 0;
+  font-size: 0.8rem;
+  outline: 0;
+  align-items: center;
+  transition: 0.2s;
+  box-sizing: border-box;
+  list-style: none;
+  border-bottom: 1px solid #00000000;
+}
+
+.my-menus-item-divided {
+  border-bottom-color: #ebeef5;
+}
+
+.my-menus-item-available {
+  color: #606266;
+  cursor: pointer;
+}
+.my-menus-item-available div{
+  margin: 0 0.5rem;
+}
+
+.my-menus-item-available:hover {
+  background: #ecf5ff;
+  color: #409eff;
+}
+
+.my-menus-item-disabled {
+  color: #c0c4cc;
+  cursor: not-allowed;
+}
+
+/* todo 改写成scss格式，em和rem单位选用及统一，相对单位的使用规范？  响应式布局 */
